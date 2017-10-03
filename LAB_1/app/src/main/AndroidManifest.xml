@@ -3,8 +3,7 @@
     package="com.example.andreea.lab_1">
     <permission android:name="android.permission.FLASHLIGHT"
         android:permissionGroup="android.permission-group.HARDWARE_CONTROLS"
-        android:protectionLevel="normal"
-        android:label="@string/permlab_flashlight" />
+        android:protectionLevel="normal" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -16,6 +15,9 @@
     <uses-feature
         android:name="android.hardware.camera.autofocus"
         android:required="false" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-feature android:name="android.hardware.camera.flash"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"

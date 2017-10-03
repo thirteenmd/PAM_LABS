@@ -4,15 +4,21 @@ import android.app.Activity;
 import android.app.NotificationManager;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Camera;
+import android.hardware.camera2.CameraAccessException;
+import android.hardware.camera2.CameraManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.Settings;
+import android.support.annotation.RequiresApi;
 import android.support.v4.content.FileProvider;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.NotificationCompat;
@@ -21,6 +27,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RemoteViews;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.IOException;
@@ -35,8 +42,11 @@ public class MainActivity extends AppCompatActivity {
     private EditText editTextInput;
     static final int REQUEST_TAKE_PHOTO = 1;
     Intent takePictureIntent;
-    public static Camera cam = null;
+    private CameraManager objCameraManager;
+    private String mCameraId;
+    private Boolean isTorchOn = false;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,6 +137,25 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        Boolean isFlashAvailable = getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
+        objCameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+        try {
+            mCameraId = objCameraManager.getCameraIdList()[0];
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
+        }
+        if (!isFlashAvailable) {
+            Log.i("Flashlight", "No Flashlight!!!");
+        }else {
+            if (isTorchOn){
+                turnLight(false);
+                isTorchOn = false;
+            }else{
+                turnLight(true);
+                isTorchOn = true;
+            }
+        }
     }
 
     String mCurrentPhotoPath;
@@ -155,6 +184,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(showPicture);
     }
 
-
+    public void turnLight(boolean camera) {
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                objCameraManager.setTorchMode(mCameraId, camera);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }
