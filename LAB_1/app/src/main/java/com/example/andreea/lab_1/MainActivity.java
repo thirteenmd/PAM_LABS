@@ -134,28 +134,27 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.flash_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Boolean isFlashAvailable = getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
+                objCameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+                try {
+                    mCameraId = objCameraManager.getCameraIdList()[0];
+                } catch (CameraAccessException e) {
+                    e.printStackTrace();
+                }
+                if (!isFlashAvailable) {
+                    Log.i("Flashlight", "No Flashlight!!!");
+                }else {
+                    if (isTorchOn){
+                        turnLight(false);
+                        isTorchOn = false;
+                    }else{
+                        turnLight(true);
+                        isTorchOn = true;
+                    }
+                }
             }
         });
 
-        Boolean isFlashAvailable = getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
-        objCameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
-        try {
-            mCameraId = objCameraManager.getCameraIdList()[0];
-        } catch (CameraAccessException e) {
-            e.printStackTrace();
-        }
-        if (!isFlashAvailable) {
-            Log.i("Flashlight", "No Flashlight!!!");
-        }else {
-            if (isTorchOn){
-                turnLight(false);
-                isTorchOn = false;
-            }else{
-                turnLight(true);
-                isTorchOn = true;
-            }
-        }
     }
 
     String mCurrentPhotoPath;
