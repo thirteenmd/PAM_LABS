@@ -99,8 +99,7 @@ public class MainActivity extends AppCompatActivity {
                             Log.i("Exception!", e.toString());
                         }
                         if(photoFile != null){
-                            Uri photoURI = FileProvider.getUriForFile(MainActivity.this,"com.example.android.fileprovider",
-                                    photoFile);
+                            Uri photoURI = FileProvider.getUriForFile(MainActivity.this,"com.example.android.fileprovider",photoFile);
                             takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                             takePictureIntent.putExtra("android.intent.extras.CAMERA_FACING", 1);
                             startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
@@ -115,14 +114,12 @@ public class MainActivity extends AppCompatActivity {
                         File photoFile = null;
                         try {
                             photoFile = createImageFile();
-                        } catch (IOException ex) {
-                            // Error occurred while creating the File
+                        } catch (IOException e) {
+                            Log.i("Exception!", e.toString());
                         }
                         // Continue only if the File was successfully created
                         if (photoFile != null) {
-                            Uri photoURI = FileProvider.getUriForFile(MainActivity.this,
-                                    "com.example.android.fileprovider",
-                                    photoFile);
+                            Uri photoURI = FileProvider.getUriForFile(MainActivity.this,"com.example.android.fileprovider",photoFile);
                             takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                             startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
                         }
@@ -160,7 +157,6 @@ public class MainActivity extends AppCompatActivity {
     String mCurrentPhotoPath;
 
     private File createImageFile() throws IOException {
-        // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
@@ -170,7 +166,6 @@ public class MainActivity extends AppCompatActivity {
                 storageDir      /* directory */
         );
 
-        // Save a file: path for use with ACTION_VIEW intents
         mCurrentPhotoPath = image.getAbsolutePath();
         return image;
     }
