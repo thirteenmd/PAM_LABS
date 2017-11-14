@@ -24,6 +24,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.astuetz.PagerSlidingTabStrip;
 import com.example.andreea.lab_2.R;
 import com.example.andreea.lab_2.ViewController.adapter.TabsAdapter;
 
@@ -41,11 +42,14 @@ public class MainActivity extends AppCompatActivity implements android.support.v
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        tabsViewPager = (ViewPager) findViewById(R.id.tabsPager);
+        tabsViewPager = findViewById(R.id.tabsPager);
 
         mTabsAdapter = new TabsAdapter(getSupportFragmentManager());
 
         tabsViewPager.setAdapter(mTabsAdapter);
+
+        PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
+        tabs.setViewPager(tabsViewPager);
 
         getSupportActionBar().setTitle("Home");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -79,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements android.support.v
         historyTab.setCustomView(tvToday);
 
         TextView tvTomorrow = new TextView(this);
-        tvHistory.setText(Html.fromHtml("<b>TOMORROW</b><br><small>" + todayString + "</small>"));
+        tvHistory.setText(Html.fromHtml("<b>TOMORROW</b><br><small>" + tomorrowString + "</small>"));
         tvHistory.setTextColor(Color.WHITE);
         tvHistory.setGravity(Gravity.CENTER);
         tvHistory.setHeight(200);
@@ -91,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements android.support.v
 
         getSupportActionBar().setSelectedNavigationItem(1);
 
-        tabsViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener(){
+        tabs.setOnPageChangeListener(new ViewPager.OnPageChangeListener(){
             @Override
             public void onPageScrolled(int arg1, float arg2, int arg3) {
 
@@ -121,20 +125,26 @@ public class MainActivity extends AppCompatActivity implements android.support.v
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            goToSettings();
+            return true;
+        }
+
+        if (id == R.id.action_add) {
+            goToAdd();
+            return true;
+        }
+
+        if (id == R.id.action_edit) {
+            goToEdit();
             return true;
         }
 
@@ -157,7 +167,25 @@ public class MainActivity extends AppCompatActivity implements android.support.v
     }
 
     public void goToAdd(){
-        Intent intent = new Intent(this, AddPill.class);
+        Intent intent = new Intent(this, AddPillActivity.class);
         startActivity(intent);
+        finish();
+    }
+
+    public void goToSettings(){
+        Intent intent = new Intent(this, ScheduleActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void goToEdit(){
+        Intent intent = new Intent(this, PillBoxActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        return;
     }
 }
