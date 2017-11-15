@@ -30,8 +30,8 @@ public class TodayFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_history, container, false);
-        TableLayout stk = rootView.findViewById(R.id.table_history);
+        View rootView = inflater.inflate(R.layout.fragment_today, container, false);
+        TableLayout stk = rootView.findViewById(R.id.table_today);
         PillBox pillBox = new PillBox();
 
         Calendar calendar = Calendar.getInstance();
