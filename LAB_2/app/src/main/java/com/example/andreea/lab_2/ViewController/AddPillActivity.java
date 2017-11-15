@@ -1,8 +1,15 @@
 package com.example.andreea.lab_2.ViewController;
 
-/**
- * Created by Andreea on 10/30/2017.
- */
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 
-class AddPillActivity {
+import com.example.andreea.lab_2.R;
+
+public class AddPillActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_add_pill);
+    }
 }

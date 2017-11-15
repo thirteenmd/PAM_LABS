@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:orientation="horizontal"
+    android:layout_centerHorizontal="true">
+
+    <TextView
+        android:id="@+id/pill_box_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:textSize="17sp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/pill_box_sunday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="17sp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:gravity="center"
+        android:text="Su"/>
+
+    <TextView
+        android:id="@+id/pill_box_monday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="17sp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:gravity="center"
+        android:text="Mo"/>
+
+    <TextView
+        android:id="@+id/pill_box_tuesday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="17sp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:gravity="center"
+        android:text="Tu"/>
+
+    <TextView
+        android:id="@+id/pill_box_wednesday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="17sp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:gravity="center"
+        android:text="We"/>
+
+    <TextView
+        android:id="@+id/pill_box_thursday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="17sp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:gravity="center"
+        android:text="Th"/>
+
+    <TextView
+        android:id="@+id/pill_box_friday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="17sp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:gravity="center"
+        android:text="Fr"/>
+
+    <TextView
+        android:id="@+id/pill_box_saturday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="17sp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:gravity="center"
+        android:text="Sa"/>
+
+
+</LinearLayout>

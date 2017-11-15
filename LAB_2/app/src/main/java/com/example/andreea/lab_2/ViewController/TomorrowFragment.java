@@ -81,8 +81,6 @@ public class TomorrowFragment extends Fragment {
 
             stk.addView(tbrow);
         }
-
-
         return rootView;
     }
 }
