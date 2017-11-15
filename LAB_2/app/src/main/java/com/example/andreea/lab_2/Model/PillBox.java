@@ -45,7 +45,7 @@ public class PillBox {
         return wantedPill;
     }
 
-    public void allAlarm(Context c, Alarm alarm, Pill pill){
+    public void addAlarm(Context c, Alarm alarm, Pill pill){
         db = new DbHelper(c);
         db.createAlarm(alarm, pill.getPillId());
         db.close();
