@@ -22,7 +22,8 @@
         <activity android:name=".ViewController.AddPillActivity" />
         <activity android:name=".ViewController.PillBoxActivity" />
         <activity android:name=".ViewController.ScheduleActivity" />
-        <activity android:name=".ViewController.AlertActivity"></activity>
+        <activity android:name=".ViewController.AlertActivity" />
+        <activity android:name=".ViewController.EditActivity"></activity>
     </application>
 
 </manifest>

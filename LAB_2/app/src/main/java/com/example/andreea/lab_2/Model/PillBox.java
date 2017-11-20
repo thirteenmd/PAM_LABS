@@ -30,7 +30,7 @@ public class PillBox {
         return allPills;
     }
 
-    public long allPill(Context c, Pill pill){
+    public long addPill(Context c, Pill pill){
         db = new DbHelper(c);
         long pillId = db.createPill(pill);
         pill.setPillId(pillId);
