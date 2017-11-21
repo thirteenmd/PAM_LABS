@@ -6,4 +6,9 @@
     android:layout_height="match_parent"
     tools:context="com.example.andreea.lab_2.ViewController.PillBoxActivity">
 
+    <ExpandableListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ivExp"></ExpandableListView>
+
 </android.support.constraint.ConstraintLayout>

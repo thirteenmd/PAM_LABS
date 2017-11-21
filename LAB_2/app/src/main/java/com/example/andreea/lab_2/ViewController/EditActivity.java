@@ -136,7 +136,7 @@ public class EditActivity extends AppCompatActivity {
                 Alarm alarm = new Alarm();
 
                 /** If Pill does not already exist */
-                if (!pillBox.pillExists(getApplicationContext(), pill_name)) {
+                if (!pillBox.pillExist(getApplicationContext(), pill_name)) {
                     Pill pill = new Pill();
                     pill.setPillName(pill_name);
                     alarm.setHour(hour);

@@ -41,7 +41,7 @@ public class AlertAlarm extends DialogFragment {
             }
         });
 
-        builder.setNegativeButton("I won;t take it.", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("I won't take it.", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 AlertActivity act = (AlertActivity)getActivity();

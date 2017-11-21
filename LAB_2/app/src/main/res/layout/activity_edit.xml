@@ -83,78 +83,78 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="8dp">
 
-                <pillapp.ViewController.CustomCheckBox
+                <com.example.andreea.lab_2.ViewController.CustomCheckBox
                     android:id="@+id/checkbox_monday"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/Monday"
+                    android:text="Monday"
                     android:button="@null"
                     android:onClick="onCheckboxClicked"
                     android:padding="1dp"
                     android:gravity="center"/>
 
-                <pillapp.ViewController.CustomCheckBox
+                <com.example.andreea.lab_2.ViewController.CustomCheckBox
                     android:id="@+id/checkbox_tuesday"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/Tuesday"
+                    android:text="Tuesday"
                     android:button="@null"
                     android:onClick="onCheckboxClicked"
                     android:padding="1dp"
                     android:gravity="center"/>
 
-                <pillapp.ViewController.CustomCheckBox
+                <com.example.andreea.lab_2.ViewController.CustomCheckBox
                     android:id="@+id/checkbox_wednesday"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/Wednesday"
+                    android:text="Wednesday"
                     android:button="@null"
                     android:onClick="onCheckboxClicked"
                     android:padding="1dp"
                     android:gravity="center"/>
 
-                <pillapp.ViewController.CustomCheckBox
+                <com.example.andreea.lab_2.ViewController.CustomCheckBox
                     android:id="@+id/checkbox_thursday"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/Thursday"
+                    android:text="Thursday"
                     android:button="@null"
                     android:onClick="onCheckboxClicked"
                     android:padding="1dp"
                     android:gravity="center"/>
 
-                <pillapp.ViewController.CustomCheckBox
+                <com.example.andreea.lab_2.ViewController.CustomCheckBox
                     android:id="@+id/checkbox_friday"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/Friday"
+                    android:text="Friday"
                     android:button="@null"
                     android:onClick="onCheckboxClicked"
                     android:padding="1dp"
                     android:gravity="center"/>
 
-                <pillapp.ViewController.CustomCheckBox
+                <com.example.andreea.lab_2.ViewController.CustomCheckBox
                     android:id="@+id/checkbox_saturday"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/Saturday"
+                    android:text="Saturday"
                     android:button="@null"
                     android:onClick="onCheckboxClicked"
                     android:padding="1dp"
                     android:gravity="center"/>
 
-                <pillapp.ViewController.CustomCheckBox
+                <com.example.andreea.lab_2.ViewController.CustomCheckBox
                     android:id="@+id/checkbox_sunday"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/Sunday"
+                    android:text="Sunday"
                     android:button="@null"
                     android:onClick="onCheckboxClicked"
                     android:padding="1dp"

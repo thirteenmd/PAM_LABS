@@ -66,8 +66,6 @@ public class AddPillActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Add an alarm");
 
         timeLabel = findViewById(R.id.reminder_time);
-        Typeface lightFont = Typeface.createFromAsset(this.getAssets(), "fonts/Robo-Light.ttf");
-        timeLabel.setTypeface(lightFont);
 
         final Calendar now = Calendar.getInstance();
         hour = now.get(Calendar.HOUR_OF_DAY);
@@ -92,7 +90,7 @@ public class AddPillActivity extends AppCompatActivity {
 
                 Alarm alarm = new Alarm();
 
-                if (!pillBox.pillExists(getApplicationContext(), pill_name)){
+                if (!pillBox.pillExist(getApplicationContext(), pill_name)){
                     Pill pill = new Pill();
                     pill.setPillName(pill_name);
                     alarm.setHour(hour);
@@ -100,7 +98,7 @@ public class AddPillActivity extends AppCompatActivity {
                     alarm.setPillName(pill_name);
                     alarm.setDayOfWeek(dayOfWeekList);
                     pill.addAlarm(alarm);
-                    long pillId = pillBox.allPill(getApplicationContext(), pill);
+                    long pillId = pillBox.addPill(getApplicationContext(), pill);
                     pill.setPillId(pillId);
                     pillBox.addAlarm(getApplicationContext(), alarm, pill);
                 } else {
@@ -224,9 +222,9 @@ public class AddPillActivity extends AppCompatActivity {
                 break;
             case R.id.checkbox_sunday:
                 if (checked)
-                    dayOfWeekList[7] = true;
+                    dayOfWeekList[0] = true;
                 else
-                    dayOfWeekList[7] = false;
+                    dayOfWeekList[0] = false;
                 break;
             case R.id.every_day:
                 LinearLayout linearLayout = findViewById(R.id.checkbox_layout);
